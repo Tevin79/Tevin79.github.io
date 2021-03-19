@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Accueil</title>
+    <style type="text/css">
+        a,
+        input,
+        p {
+            border: 5px outset dodgerblue;
+            background-color: darkblue;
+            color: white;
+            border-radius: 8px;
+            padding: 10px;
+            text-decoration: none;
+            text-shadow: 5px 3px black;
+            font-family: "Lucida Console";
+            text-align: center;
+        }
+        
+        h4 {
+            padding: 10px;
+        }
+        
+        body {
+            background-image: url("https://images2.alphacoders.com/805/805177.jpg");
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+</body>
+<script type="text/javascript">
+var names;
+var href;
+
+	if (localStorage.getItem("name") === null && localStorage.getItem("url") === null) {
+        var href = ["http://www.google.fr/",
+            "https://mail.google.com/mail/",
+            "https://meet.google.com/",
+            "https://drive.google.com/",
+            "https://teleservices.ac-poitiers.fr/login/ct_logon_vk.jsp?CT_ORIG_URL=%2Fdispatcher%2F&ct_orig_uri=http%3A%2F%2Fteleservices.ac-poitiers.fr%2Fdispatcher%2F",
+            "https://quizlet.com/romanecabanesVV",
+            "https://lycee.cned.fr/cv/241934/341"
+        ]
+
+	var href_mem = JSON.stringify(href);
+	localStorage.setItem("url",href_mem);
+	
+        var names = ["Google", "Gmail", "Google meet", "Drive", "LOL", "Quizlet Romane", "Maths"]
+	
+	var names_mem = JSON.stringify(names);
+        localStorage.setItem("name",names_mem);
+
+
+    } else {
+	var href_mem = localStorage.getItem("url");
+	var href = JSON.parse(href_mem);
+	var names_mem = localStorage.getItem("name");
+        var names = JSON.parse(names_mem);
+//        var href = localStorage.getItem("url")
+//        var names = localStorage.getItem("name")
+	
+    }
+
+    var len = href.length - 1
+
+    for (var i = 0; i <= len; i++) {
+	document.write("<h4 style=\"text-align:center;\"><input type=\"checkbox\" id=\"box" + i + "\" style=\"visibility:hidden;\"><a title=\"" + href[i] + "\" href=\"" + href[i] + "\">" + names[i] + "</a></h4>")
+    }
+
+	document.write("<br><hr><br>")
+
+	document.write("<p style=\"text-align:center;\">")
+
+    document.write("Ajouter un lien (Toute modification sera appliquée en local)<br><br>")
+
+    document.write("Entrez le nom du site : <input type=\"textarea\" id=\"name\"><br><br>")
+
+    document.write("Entrez l'url du site : <input type=\"textarea\" id=\"url\"><br><br>")
+
+    document.write("<input type=\"button\" value=\"Ajouter\" onClick=\"add()\">")
+  
+	document.write("<br><br>")
+
+	document.write("<input type=\"button\" id=\"supron\" value=\"Activer la supression\" onClick=\"supron()\">")
+
+	document.write("<br><br>")
+
+	document.write("<input type=\"button\" id=\"suproff\" style=\"visibility:hidden\" value=\"Desactiver la supression\" onClick=\"suproff()\">")
+
+   	document.write("<br><br>")
+
+	document.write("<input type=\"button\" id=\"supr\" style=\"visibility:hidden\" value=\"Supprimer les elements selectionnes\" onClick=\"supr()\">")
+
+	document.write("<br><br>")
+
+	document.write("<input type=\"button\" value=\"Annuler toutes les modifications\" onClick=\"annul()\">")
+
+    document.write("</p>")
+
+    function add() {
+	if (document.getElementById("name").value=="" || document.getElementById("url").value=="https://"){
+		alert("Vous ne pouvez pas rien ajouter !!!")
+		} else {
+        var name = document.getElementById("name").value
+        var url = document.getElementById("url").value
+        document.getElementById("name").value = ""
+        document.getElementById("url").value = ""
+        names.push(name)
+	href.push(url)
+	localStorage.clear()
+	var href_mem = JSON.stringify(href);
+        localStorage.setItem("url",href_mem);
+	var names_mem = JSON.stringify(names);
+        localStorage.setItem("name",names_mem);
+	location.reload()
+		}
+    }
+
+    function supr() {
+        if (confirm("Etes vous sur de vouloir supprimer les sites selectionnes ?")) {
+            /*names.pop()
+            href.pop()*/
+			       var t = 0
+			       for (i=0; i < names.length; i++) {
+			       if (document.getElementById("box" + i).checked == true){
+				names.splice(i-t,1)
+			       href.splice(i-t,1)
+			        t = t + 1
+			       }
+			       }
+	    localStorage.clear()
+	    var href_mem = JSON.stringify(href);
+            localStorage.setItem("url",href_mem);
+    	    var names_mem = JSON.stringify(names);
+   	    localStorage.setItem("name",names_mem);
+	    location.reload()
+        }
+    }
+
+	function supron() {
+		for (i=0; i < names.length; i++) {
+			document.getElementById("box" + i).style.visibility = "visible";
+			}
+		document.getElementById("suproff").style.visibility = "visible";
+		document.getElementById("supron").style.visibility = "hidden";
+		document.getElementById("supr").style.visibility = "visible";
+	}
+
+	function suproff() {
+		for (i=0; i < names.length; i++) {
+                        document.getElementById("box" + i).style.visibility = "hidden";
+                        }
+		document.getElementById("suproff").style.visibility = "hidden";
+                document.getElementById("supron").style.visibility = "visible";
+		document.getElementById("supr").style.visibility = "hidden";
+	}
+
+    function annul() {
+		    if (confirm("Etes vous sur de vouloir annuler toutes les modifications ?")) {
+		localStorage.clear()
+		location.reload()
+			    }
+    }
+
+</script>
+
+</html>
