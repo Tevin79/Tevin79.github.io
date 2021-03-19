@@ -6,7 +6,8 @@
     <style type="text/css">
         a,
         input,
-        p {
+        p
+	{
             border: 5px outset dodgerblue;
             background-color: darkblue;
             color: white;
@@ -17,13 +18,13 @@
             font-family: "Lucida Console";
             text-align: center;
         }
-        
+       
         h4 {
-            padding: 10px;
+            padding: 5px;
         }
         
         body {
-            background-image: url("https://images2.alphacoders.com/805/805177.jpg");
+            
         }
     </style>
 </head>
@@ -71,7 +72,9 @@ var href;
 
 	document.write("<br><hr><br>")
 
-	document.write("<p style=\"text-align:center;\">")
+	document.write("<div style=\"text-align:center;\">")
+
+	document.write("<p style=\"text-align:center;display:inline-block;\">")
 
     document.write("Ajouter un lien (Toute modification sera appliquée en local)<br><br>")
 
@@ -97,7 +100,9 @@ var href;
 
 	document.write("<input type=\"button\" value=\"Annuler toutes les modifications\" onClick=\"annul()\">")
 
-    document.write("</p>")
+	document.write("</p>")
+
+	document.write("</div>")
 
     function add() {
 	if (document.getElementById("name").value=="" || document.getElementById("url").value=="https://"){
