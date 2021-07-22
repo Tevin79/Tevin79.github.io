@@ -1,0 +1,133 @@
+
+	/* Definir le style de tous les boutons... */
+
+     /*   a,
+        input
+	{
+            border: 5px outset dodgerblue;
+            background-color: darkblue;
+            color: white;
+            border-radius: 8px;
+            padding: 10px;
+            text-decoration: none;
+            text-shadow: 5px 3px black;
+            font-family: "Lucida Console";
+            text-align: center;
+        }*/
+
+    header{
+            text-align: center;
+    }
+
+    .nav-button-active{
+            border-radius: 8px 0 0 8px;
+            margin-right: 0;
+            background-color: blue;
+            border: 2px solid blue;
+            padding: 0.5em 1em;
+    }
+
+    .nav-lien-active{
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+    }
+
+    .nav-button{
+            border-radius: 0 8px 8px 0;
+            margin-left: 0;
+            background-color: white;
+            border: 2px solid black;
+            padding: 0.5em 1em;
+    }
+
+    .nav-lien {
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+    }
+
+        p{
+        display:flex;
+        justify-content:center;
+        }
+        
+        #lien{
+        display:flex;
+        justify-content:center;
+        align-items:flex-start;
+        flex-wrap:wrap;
+        margin:5px;
+        margin-bottom:25px;
+        padding:10px;
+        }
+        
+        #param{
+        display:none;
+        flex-direction:column;
+        align-items:center;
+        justify-content:flex-end;
+        align-content:flex-end;
+        border: 5px outset dodgerblue;
+        background-color: darkblue;
+        color: white;
+        border-radius: 8px;
+        padding: 10px;
+        text-decoration: none;
+        text-shadow: 5px 3px black;
+        font-family: "Lucida Console";
+        width:350px;
+        margin:auto;
+        }
+        
+        .box{
+        display:none;
+        justify-items:center;
+        }
+        
+        .suppr{
+        margin:10px;
+        }
+        
+        .in{
+        margin:5px;
+        }
+        
+        .liens{
+        display:flex;
+        align-items:center;
+        padding:8px;
+        animation-duration:1s;
+        animation-name:apparition;
+        }
+        
+        .lien{
+        border: 5px outset dodgerblue;
+        background-color: darkblue;
+        color: white;
+        border-radius: 10px;
+        padding: 10px;
+        text-decoration: none;
+        text-shadow: 5px 3px black;
+        font-family: "Lucida Console";
+        }
+        
+        @keyframes apparition {
+        from {
+        opacity:0%;
+        }
+        
+        to {
+        opacity:100%;
+        }
+        }
+        
+        @keyframes disparition {
+        from {
+        opacity:100%;
+        }
+        
+        to {
+        opacity:0%;
+        }
+        }
