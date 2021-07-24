@@ -15,7 +15,6 @@ var href;
             "https://meet.google.com/",
             "https://drive.google.com/",
             "https://ent.ac-poitiers.fr",
-            "https://lycee.cned.fr/cv/241934/341"
         ]
 
 // Met les url dans le localStorage
@@ -25,7 +24,7 @@ var href;
 	*/
 // Complete les noms liés aux url par defaut
 	
-        var names = ["Google", "Gmail", "Google meet", "Drive", "LOL", "Maths"]
+        var names = ["Google", "Gmail", "Google meet", "Drive", "LOL"]
 	
 // Met les noms dans le localStorage
 	/*
@@ -53,7 +52,7 @@ var href;
 	document.write("<div class=\"liens\"><input type=\"checkbox\" id=\"box" + i + "\" class=\"box\"><a class=\"lien\" title=\"" + href[i] + "\" href=\"" + href[i] + "\">" + names[i] + "</a></div>")
     }
     
-    document.write("<div class=\"liens\"><input type=\"button\" class=\"lien\" id=\"plus\" onClick=\"plus()\" value=\"+\"></div>");
+    document.write("<div class=\"liens\"><input type=\"button\" class=\"lien\" id=\"plus\" value='+' onClick=\"plus()\" ></div>");
     
     document.write("</div>");
 
@@ -67,15 +66,15 @@ var href;
 
     document.write("<p class=\"in\">Entrez l'url du site : </p><input type=\"textarea\" id=\"url\" class=\"suppr\">");
 
-    document.write("<input type=\"button\" value=\"Ajouter\" onClick=\"add()\" class=\"suppr\">");
+    document.write("<input type=\"button\" value=\"Ajouter\" onClick=\"add()\" class=\"supprim\">");
 
-	document.write("<input type=\"button\" id=\"supron\" value=\"Activer la supression\" onClick=\"supron()\" class=\"suppr\">");
+	document.write("<input type=\"button\" id=\"supron\" value=\"Activer la supression\" onClick=\"supron()\" class=\"supprim\">");
 
-	document.write("<input type=\"button\" id=\"suproff\" style=\"display:none\" value=\"Désactiver la supression\" onClick=\"suproff()\" class=\"suppr\">");
+	document.write("<input type=\"button\" id=\"suproff\" style=\"display:none\" value=\"Désactiver la supression\" onClick=\"suproff()\" class=\"supprim\">");
 
-	document.write("<input type=\"button\" id=\"supr\" style=\"display:none\" value=\"Supprimer les éléments sélectionnés\" onClick=\"supr()\" class=\"suppr\">");
+	document.write("<input type=\"button\" id=\"supr\" style=\"display:none\" value=\"Supprimer les éléments sélectionnés\" onClick=\"supr()\" class=\"supprim\">");
 
-	document.write("<input type=\"button\" value=\"Annuler toutes les modifications\" onClick=\"annul()\" class=\"suppr\">");
+	document.write("<input type=\"button\" value=\"Annuler toutes les modifications\" onClick=\"annul()\" class=\"supprim\">");
 
 	document.write("<p>(Toute modification sera appliquée en local)</p>");
 	

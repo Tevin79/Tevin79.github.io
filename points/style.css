@@ -1,0 +1,128 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    /*display: flex;
+    justify-content: center;
+    flex-wrap: wrap;*/
+
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.body {
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 200px;
+}
+
+.button {
+    padding: 10px 10px;
+    margin: 20px 20px;
+    font-size: 20px;
+    width: 8.8em;
+    border-radius: 8px 8px 8px 8px;
+    background-color: white;
+    border: 2px solid black;
+    transition-property: background-color, color;
+    transition-duration: 0.5s;
+}
+
+.button:not(:disabled):hover{
+    background-color: blue;
+    color: white;
+}
+
+.player {
+    /*display: inline-flex;
+    border: 1px solid black;
+    border-collapse: collapse;
+    flex-direction: column;
+    align-items: center;*/
+    text-align: center;
+    margin: 3em 3em 1em 3em;
+    height: auto;
+    padding: 0;
+}
+
+input {
+    text-align: center;
+    font-size: 20px;
+    margin: 10px 0;
+    width: 100px;
+}
+
+.inputPoints{
+    border-radius: 8px 8px 8px 8px;
+    background-color: white;
+    border: 2px solid black;
+    padding: 0.5em 0;
+    text-decoration: none;
+    color: black;
+}
+
+header{
+    padding-top: 20px;
+    text-align: center;
+    height: 2em;
+}
+
+.playerName,
+.playerTotalPoints
+{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.histText{
+    border-radius: 8px 8px 8px 8px;
+    background-color: white;
+    border: 2px solid black;
+    padding: 0.5em 0;
+    margin: 20px 0 0 0;
+    font-size: 15px;
+    width: 7em;
+    height: 6.6em;
+    color: black;
+    text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+    .body,
+    .buttons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: auto;
+    }
+
+    .player {
+        margin: 20px 10px 10px 10px;
+    }
+}
+
+/*@media all and (max-device-width: 1080px) {
+    .body {
+    	flex-direction:column;
+    	height:auto;
+    }
+    
+    .buttons {
+        flex-direction: column;
+    }
+
+    .player {
+        margin: 20px 10px 10px 10px;
+    }
+}*/
