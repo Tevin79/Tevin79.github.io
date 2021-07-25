@@ -4,40 +4,34 @@ header{
 }
 
 .nav-lien-start-active{
-    color: white;
     text-decoration: none;
     font-size: 20px;
     border-radius: 8px 0 0 8px;
     margin-right: 0;
-    background-color: blue;
-    border: 2px solid blue;
+    border: 2px solid;
     padding: 0.5em 1em;
     transition-property: background-color;
     transition-duration: 0.5s;
 }
 
 .nav-lien-active{
-    color: white;
     text-decoration: none;
     font-size: 20px;
     border-radius: 0;
     margin-left: 0;
     margin-right: 0;
-    background-color: blue;
-    border: 2px solid blue;
+    border: 2px solid;
     padding: 0.5em 1em;
     transition-property: background-color;
     transition-duration: 0.5s;
 }
 
 .nav-lien-end-active{
-    color: white;
     text-decoration: none;
     font-size: 20px;
     border-radius: 0 8px 8px 0;
     margin-left: 0;
-    background-color: blue;
-    border: 2px solid blue;
+    border: 2px solid;
     padding: 0.5em 1em;
     transition-property: background-color;
     transition-duration: 0.5s;
@@ -87,10 +81,4 @@ header{
 .nav-lien:hover,
 .nav-lien-end:hover{
     background-color: rgb(200,200,200);
-}
-
-.nav-lien-start-active:hover,
-.nav-lien-active:hover,
-.nav-lien-end-active:hover {
-    background-color: rgb(0,0,200);
 }

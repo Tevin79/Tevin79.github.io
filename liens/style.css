@@ -15,8 +15,7 @@
         #plus:hover,
         .lien:hover,
         .supprim:hover{
-            background-color: blue;
-            color: white;
+            background-color: rgb(200,200,200);
         }
 
         #plus{

@@ -38,8 +38,7 @@ body {
 }
 
 .button:not(:disabled):hover{
-    background-color: blue;
-    color: white;
+    background-color: rgb(200,200,200);
 }
 
 .player {

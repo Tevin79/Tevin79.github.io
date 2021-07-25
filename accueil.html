@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="accueil/style.css">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body onload="load()">
+
+<header>
+    <a class="nav-lien-start-active" href="accueil.html">Accueil</a>
+    <a class="nav-lien" href="liens/index.html">Liens</a>
+    <a class="nav-lien" href="pbm_box/pbm_box.html">Box</a>
+    <a class="nav-lien-end" href="points/scratch.html">Compteur de points</a>
+</header>
+
+<p class="accueil">Bienvenue sur mon site !</p>
+<p class="color-text">Vous pouvez modifier la couleur principale ci-dessous</p>
+<select id="select" onchange="color()">
+    <option value="">--Choisissez une couleur--</option>
+    <option value="blue" style="background-color: blue; color: white;">Bleu</option>
+    <option value="aqua" style="background-color: aqua">Bleu ciel</option>
+    <option value="red" style="background-color: red; color: white;">Rouge</option>
+    <option value="green" style="background-color: green; color: white;">Vert</option>
+    <option value="yellow" style="background-color: yellow">Jaune</option>
+    <option value="purple" style="background-color: purple; color: white;">Violet</option>
+    <option value="pink" style="background-color: pink">Rose</option>
+    <option value="orange" style="background-color: orange">Orange</option>
+</select>
+<!--<input type="text" id="color">
+<input type="button" class="color-picker" onclick="color()" value="Changer la couleur">-->
+
+</body>
+
+<script type="text/javascript" src="accueil/script.js"></script>
+</html>
