@@ -16,7 +16,6 @@ body{
 }
 
 .pbm-lien:hover{
-    color: white;
-    background-color: blue;
+    background-color: rgb(200,200,200);
 
 }
