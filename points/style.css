@@ -6,7 +6,8 @@
 body {
     /*display: flex;
     justify-content: center;
-    flex-wrap: wrap;*/
+    flex-wrap: wrap;
+    flex-direction: column;*/
 
 }
 
@@ -72,7 +73,6 @@ input {
 header{
     padding-top: 20px;
     text-align: center;
-    height: 2em;
 }
 
 .playerName,
