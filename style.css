@@ -82,5 +82,12 @@ header{
 }
 
 @media screen and (max-width: 800px) {
-
+.nav-lien-start,
+    .nav-lien-start-active,
+    .nav-lien,
+    .nav-lien-active,
+    .nav-lien-end,
+    .nav-lien-end-active{
+    border-radius: 0;
+}
 }
