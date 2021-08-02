@@ -73,6 +73,9 @@ let href;
 
     let newDivLiens = document.createElement("div");
     newDivLiens.classList.add("liens");
+newDivLiens.style.display = "block";
+newDivLiens.style.width = "100%";
+newDivLiens.style.textAlign = "center";
     let newInputButton = document.createElement("input");
     newInputButton.type = "button";
     newInputButton.classList.add("lien");

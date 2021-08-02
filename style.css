@@ -1,6 +1,10 @@
 header{
     padding-top: 10px;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-collapse: collapse;
 }
 
 .nav-lien-start-active{
@@ -10,8 +14,6 @@ header{
     margin-right: 0;
     border: 2px solid;
     padding: 0.5em 1em;
-    transition-property: background-color;
-    transition-duration: 0.5s;
 }
 
 .nav-lien-active{
@@ -22,8 +24,6 @@ header{
     margin-right: 0;
     border: 2px solid;
     padding: 0.5em 1em;
-    transition-property: background-color;
-    transition-duration: 0.5s;
 }
 
 .nav-lien-end-active{
@@ -33,8 +33,6 @@ header{
     margin-left: 0;
     border: 2px solid;
     padding: 0.5em 1em;
-    transition-property: background-color;
-    transition-duration: 0.5s;
 }
 
 .nav-lien-start{
@@ -81,4 +79,8 @@ header{
 .nav-lien:hover,
 .nav-lien-end:hover{
     background-color: rgb(200,200,200);
+}
+
+@media screen and (max-width: 800px) {
+
 }
