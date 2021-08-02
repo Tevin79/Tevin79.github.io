@@ -1,9 +1,10 @@
 function color() {
-
     var select = document.getElementById("select");
     var choice = select.selectedIndex;
     var colorAll = select.options[choice].value;
-    /*var colorAll = document.getElementById("color").value;*/
-    localStorage.setItem("color", colorAll)
+    localStorage.setItem("choice", choice);
+    localStorage.setItem("color", colorAll);
+    location.reload()
 }
+document.getElementById("select").selectedIndex = localStorage.getItem("choice");
 

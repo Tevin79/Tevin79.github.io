@@ -12,6 +12,15 @@
             padding:10px;
         }
 
+        #liens{
+            display:flex;
+            justify-content:center;
+            align-items:flex-start;
+            flex-wrap:wrap;
+            margin: 30px 5px 25px;
+            padding:10px;
+        }
+
         #plus:hover,
         .lien:hover,
         .supprim:hover{
@@ -66,6 +75,8 @@
         
         .liens{
         display:flex;
+            flex-direction: column;
+            flex-wrap: wrap;
         align-items:center;
         padding:8px;
         animation-duration:1s;
