@@ -81,6 +81,25 @@ header{
     background-color: rgb(200,200,200);
 }
 
+.nav-lien-start,
+.nav-lien-start-active,
+.nav-lien,
+.nav-lien-active,
+.nav-lien-end,
+.nav-lien-end-active{
+    transition-property: transform;
+    transition-duration: 0.5s;
+}
+
+.nav-lien-start:hover,
+.nav-lien-start-active:hover,
+.nav-lien:hover,
+.nav-lien-active:hover,
+.nav-lien-end:hover,
+.nav-lien-end-active:hover{
+    transform: scale(1.1);
+}
+
 @media screen and (max-width: 800px) {
 .nav-lien-start,
     .nav-lien-start-active,

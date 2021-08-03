@@ -1,10 +1,11 @@
 class Players {
-    constructor(name, totalPoints, points, pointsHistoryText, pointsHistoryArray) {
+    constructor(name, totalPoints, points, pointsHistoryText, pointsHistoryArray, distrib) {
         this.name = name;
         this.totalPoints = totalPoints;
         this.points = points;
         this.pointsHistoryText = pointsHistoryText;
         this.pointsHistoryArray = pointsHistoryArray;
+        this.distrib = distrib;
     }
 }
 
@@ -14,9 +15,9 @@ let i = 0;
 
 if (localStorage.getItem("name0") === null) {
     players = [
-        new Players("Player_1", 0, 0, "", []),
-        new Players("Player_2", 0, 0, "", []),
-        new Players("Player_3", 0, 0, "", [])
+        new Players("Player_1", 0, 0, "", [], 1),
+        new Players("Player_2", 0, 0, "", [], 0),
+        new Players("Player_3", 0, 0, "", [], 0)
     ];
     write();
 } else {
@@ -37,7 +38,9 @@ function addLocalStorage() {
         let pointsHistoryText = JSON.stringify(players[i].pointsHistoryText);
         localStorage.setItem("pointsHistoryText" + i, pointsHistoryText);
         let pointsHistoryArray = JSON.stringify(players[i].pointsHistoryArray);
-        localStorage.setItem("pointsHistoryArray" + i, pointsHistoryArray)
+        localStorage.setItem("pointsHistoryArray" + i, pointsHistoryArray);
+        let distrib = players[i].distrib;
+        localStorage.setItem("distrib" + i, distrib);
     }
 }
 
@@ -56,7 +59,9 @@ function getLocalStorage() {
         let pointsHistoryArray = localStorage.getItem("pointsHistoryArray" + i);
         pointsHistoryArray = JSON.parse(pointsHistoryArray);
 
-        players[i] = new Players(name, totalPoints, points, pointsHistoryText, pointsHistoryArray);
+        let distrib = localStorage.getItem("distrib" + i);
+
+        players[i] = new Players(name, totalPoints, points, pointsHistoryText, pointsHistoryArray, distrib);
         i++;
     }
 }
@@ -154,6 +159,17 @@ function write() {
         newInput.classList.add("inputPoints");
         newInput.id = player.name + "_input";
 
+        let newBox = document.createElement("input");
+        newBox.type = "checkbox";
+        newBox.classList.add("box");
+        newBox.id = player.name + "_box";
+        newBox.disabled = true;
+        if (player.distrib === 1) {
+            newBox.checked = true;
+        } else if (player.distrib === 0) {
+            newBox.checked = false;
+        }
+
         let newP2 = document.createElement("p");
         newP2.classList.add("playerTotalPoints");
         newP2.id = player.name + "_totalPoints";
@@ -169,6 +185,7 @@ function write() {
 
         newDiv.append(newP1);
         newDiv.append(newInput);
+        //newDiv.append(newBox);
         newDiv.append(newP2);
         newDiv.append(newTextArea);
 
