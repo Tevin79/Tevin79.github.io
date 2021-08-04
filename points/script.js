@@ -248,6 +248,7 @@ function write() {
     let newDivParam = document.createElement("div");
     newDivParam.classList.add("param");
     newDivParam.id = "param";
+    newDivParam.style.display = "none";
 
     let newP = document.createElement("h2");
     newP.textContent = "Afficher qui distribue";
