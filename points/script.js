@@ -210,10 +210,11 @@ function write() {
         newInput.id = player.name + "_input";
 
         let newBox = document.createElement("input");
-        newBox.type = "checkbox";
+        newBox.type = "radio";
         newBox.classList.add("box");
         newBox.id = player.name + "_box";
         newBox.disabled = true;
+        newBox.name = "distrib";
         if (player.distrib === 1) {
             newBox.checked = true;
         } else if (player.distrib === 0) {
@@ -242,8 +243,74 @@ function write() {
         body.append(newDiv);
     }
 
+
+
+    let newDivParam = document.createElement("div");
+    newDivParam.classList.add("param");
+    newDivParam.id = "param";
+
+    let newP = document.createElement("h2");
+    newP.textContent = "Afficher qui distribue";
+
+    newDivParam.append(newP);
+
+    let newBox = document.createElement("input");
+    newBox.type = "checkbox";
+    newBox.classList.add("box");
+    newBox.onclick = box;
+    newBox.checked = true;
+    newBox.id = "boxDistrib";
+
+    newDivParam.append(newBox);
+
+    function box() {
+        if (document.getElementById("boxDistrib").checked === false) {
+            for (let player of players) {
+                document.getElementById(player.name + "_box").style.display = "none";
+                document.getElementById("pModif").style.display = "none";
+                document.getElementById("boxDistribModif").style.display = "none";
+            }
+        } else {
+            for (let player of players) {
+                document.getElementById(player.name + "_box").style.display = "inline-block";
+                document.getElementById("pModif").style.display = "inline-block";
+                document.getElementById("boxDistribModif").style.display = "inline-block";
+            }
+        }
+    }
+
+    newP = document.createElement("h2");
+    newP.textContent = "Activer la modification de qui distribue";
+    newP.id = "pModif";
+
+    newDivParam.append(newP);
+
+    newBox = document.createElement("input");
+    newBox.type = "checkbox";
+    newBox.classList.add("box");
+    newBox.onclick = boxModif;
+    newBox.checked = false;
+    newBox.id = "boxDistribModif";
+
+    newDivParam.append(newBox);
+
+    function boxModif() {
+        if (document.getElementById("boxDistribModif").checked === false) {
+            for (let player of players) {
+                document.getElementById(player.name + "_box").disabled = true;
+            }
+        } else {
+            for (let player of players) {
+                document.getElementById(player.name + "_box").disabled = false;
+            }
+        }
+    }
+
+
+
     let newDiv = document.createElement("div");
     newDiv.classList.add("buttons");
+    newDiv.id = "buttons";
 
     let newButtonCancel = document.createElement("input");
     newButtonCancel.classList.add("button");
@@ -267,10 +334,28 @@ function write() {
     newButtonReset.type = "button";
     newButtonReset.onclick = reset;
 
+    let newButtonParam = document.createElement("input");
+    newButtonParam.classList.add("button");
+    newButtonParam.id = "settings";
+    newButtonParam.value = "Paramètres";
+    newButtonParam.type = "button";
+    newButtonParam.onclick = param;
+
     newDiv.append(newButtonCancel);
     newDiv.append(newButtonAdd);
     newDiv.append(newButtonReset);
+    newDiv.append(newButtonParam);
     body.append(newDiv);
+    body.append(newDivParam);
+    
+    
+    function param() {
+        if (document.getElementById("param").style.display === "none") {
+            document.getElementById("param").style.display = "flex";
+        } else {
+            document.getElementById("param").style.display = "none";
+        }
+    }
 /*
     let reNewDiv = document.createElement("div");
     reNewDiv.classList.add("histDiv");

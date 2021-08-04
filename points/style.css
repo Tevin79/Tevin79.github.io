@@ -15,6 +15,8 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
+    flex-wrap: wrap;
+    margin: 20px 0;
 }
 
 .body {
@@ -52,6 +54,22 @@ body {
     margin: 3em 3em 1em 3em;
     height: auto;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.param{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 1em 3em 1em 3em;
+}
+
+.box {
+    height: 20px;
+    width: 20px;
+    align-content: center;
 }
 
 input {
@@ -68,8 +86,6 @@ input {
     padding: 0.5em 0;
     text-decoration: none;
     color: black;
-    margin-right: 50%;
-    margin-left: 25%;
 }
 
 header{
