@@ -28,6 +28,13 @@ if (localStorage.getItem("name0") === null) {
 
 function addLocalStorage() {
     localStorage.clear();
+    for (let player of players) {
+        if (document.getElementById(player.name + "_box").checked === true) {
+            player.distrib = 1
+        } else {
+            player.distrib = 0
+        }
+    }
     for (let i in players) {
         let name = players[i].name;
         localStorage.setItem("name" + i, name);
@@ -39,7 +46,7 @@ function addLocalStorage() {
         localStorage.setItem("pointsHistoryText" + i, pointsHistoryText);
         let pointsHistoryArray = JSON.stringify(players[i].pointsHistoryArray);
         localStorage.setItem("pointsHistoryArray" + i, pointsHistoryArray);
-        let distrib = players[i].distrib;
+        let distrib = JSON.stringify(players[i].distrib);
         localStorage.setItem("distrib" + i, distrib);
     }
 }
@@ -60,6 +67,7 @@ function getLocalStorage() {
         pointsHistoryArray = JSON.parse(pointsHistoryArray);
 
         let distrib = localStorage.getItem("distrib" + i);
+        distrib = JSON.parse(distrib);
 
         players[i] = new Players(name, totalPoints, points, pointsHistoryText, pointsHistoryArray, distrib);
         i++;
@@ -101,6 +109,23 @@ function add() {
             break;
         }
     }
+    let i = 0;
+    for (let player of players) {
+        if (document.getElementById(player.name + "_box").checked === true){
+            if (i === players.length - 1){
+                document.getElementById(players[0].name + "_box").checked = true;
+                document.getElementById(player.name + "_box").checked = false;
+                addLocalStorage();
+                break
+            } else {
+                document.getElementById(players[i+1].name + "_box").checked = true;
+                document.getElementById(player.name + "_box").checked = false;
+                addLocalStorage();
+                break
+            }
+        }
+        i++;
+    }
 }
 
 function cancel() {
@@ -117,6 +142,23 @@ function cancel() {
             document.getElementById(player.name + "_hist").value = "-"+player.points+"\n"+document.getElementById(player.name + "_hist").value;
             player.pointsHistoryText = document.getElementById(player.name + "_hist").value;
         addLocalStorage()
+        }
+        let i = 0;
+        for (let player of players) {
+            if (document.getElementById(player.name + "_box").checked === true){
+                if (i === 0){
+                    document.getElementById(players[players.length - 1].name + "_box").checked = true;
+                    document.getElementById(player.name + "_box").checked = false;
+                    addLocalStorage();
+                    break
+                } else {
+                    document.getElementById(players[i-1].name + "_box").checked = true;
+                    document.getElementById(player.name + "_box").checked = false;
+                    addLocalStorage();
+                    break
+                }
+            }
+            i++;
         }
         if (players[0].pointsHistoryArray.length === 0) {
             document.getElementById("cancel").disabled = true;
@@ -138,6 +180,14 @@ function reset() {
         }
         document.getElementById("cancel").disabled = true;
         localStorage.clear();
+        for (let i in players) {
+            if (i === 0) {
+                document.getElementById(players[i].name + "_box").checked = true;
+            } else {
+                document.getElementById(players[i].name + "_box").checked = false;
+            }
+        }
+        location.reload();
     }
 }
 
@@ -185,7 +235,7 @@ function write() {
 
         newDiv.append(newP1);
         newDiv.append(newInput);
-        //newDiv.append(newBox);
+        newDiv.append(newBox);
         newDiv.append(newP2);
         newDiv.append(newTextArea);
 
