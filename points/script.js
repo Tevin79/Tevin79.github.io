@@ -1,6 +1,7 @@
 class Players {
-    constructor(name, totalPoints, points, pointsHistoryText, pointsHistoryArray, distrib) {
+    constructor(name, newname, totalPoints, points, pointsHistoryText, pointsHistoryArray, distrib) {
         this.name = name;
+        this.newname = newname;
         this.totalPoints = totalPoints;
         this.points = points;
         this.pointsHistoryText = pointsHistoryText;
@@ -12,12 +13,14 @@ class Players {
 let players = [];
 let pts;
 let i = 0;
+let player_selected;
 
 if (localStorage.getItem("name0") === null) {
+    player_selected = 3;
     players = [
-        new Players("Player_1", 0, 0, "", [], 1),
-        new Players("Player_2", 0, 0, "", [], 0),
-        new Players("Player_3", 0, 0, "", [], 0)
+        new Players("Player_1", "Player_1", 0, 0, "", [], 1),
+        new Players("Player_2", "Player_2", 0, 0, "", [], 0),
+        new Players("Player_3", "Player_3", 0, 0, "", [], 0)
     ];
     write();
 } else {
@@ -38,6 +41,8 @@ function addLocalStorage() {
     for (let i in players) {
         let name = players[i].name;
         localStorage.setItem("name" + i, name);
+        let newname = players[i].newname;
+        localStorage.setItem("newname" + i, newname);
         let totalPoints = players[i].totalPoints;
         localStorage.setItem("totalPoints" + i, totalPoints);
         let points = players[i].points;
@@ -49,28 +54,73 @@ function addLocalStorage() {
         let distrib = JSON.stringify(players[i].distrib);
         localStorage.setItem("distrib" + i, distrib);
     }
+
+    localStorage.setItem("player_selected", player_selected)
 }
 
 function getLocalStorage() {
-    while (localStorage.getItem("name" + i) != null) {
 
-        let name = localStorage.getItem("name" + i);
+    player_selected = localStorage.getItem("player_selected");
 
-        let totalPoints = localStorage.getItem("totalPoints" + i);
+    player_selected = parseInt(player_selected);
 
-        let points = localStorage.getItem("points" + i);
+    console.log(player_selected);
 
-        let pointsHistoryText = localStorage.getItem("pointsHistoryText" + i);
-        pointsHistoryText = JSON.parse(pointsHistoryText);
+    while (i < player_selected) {
 
-        let pointsHistoryArray = localStorage.getItem("pointsHistoryArray" + i);
-        pointsHistoryArray = JSON.parse(pointsHistoryArray);
+        let j = i+1;
 
-        let distrib = localStorage.getItem("distrib" + i);
-        distrib = JSON.parse(distrib);
+        if (localStorage.getItem("name" + i) === null){
 
-        players[i] = new Players(name, totalPoints, points, pointsHistoryText, pointsHistoryArray, distrib);
+            let name = "player_" + j;
+            let newname = "player_" + j;
+            let totalPoints = 0;
+            let points = 0;
+            let pointsHistoryText = "";
+            let pointsHistoryArray = [];
+            let distrib = 0;
+
+            players[i] = new Players(name, newname, totalPoints, points, pointsHistoryText, pointsHistoryArray, distrib);
+
+        } else {
+
+            let name = localStorage.getItem("name" + i);
+
+            let newname = localStorage.getItem("newname" + i);
+
+            let totalPoints = localStorage.getItem("totalPoints" + i);
+
+            let points = localStorage.getItem("points" + i);
+
+            let pointsHistoryText = localStorage.getItem("pointsHistoryText" + i);
+            pointsHistoryText = JSON.parse(pointsHistoryText);
+
+            let pointsHistoryArray = localStorage.getItem("pointsHistoryArray" + i);
+            pointsHistoryArray = JSON.parse(pointsHistoryArray);
+
+            let distrib = localStorage.getItem("distrib" + i);
+            distrib = JSON.parse(distrib);
+
+            players[i] = new Players(name, newname, totalPoints, points, pointsHistoryText, pointsHistoryArray, distrib);
+
+        }
+
         i++;
+    }
+}
+
+function clearLocalStorage() {
+    for (let player of players) {
+        player.totalPoints = 0;
+        player.points = 0;
+        player.pointsHistoryText = "";
+        player.pointsHistoryArray = [];
+        if (player.name === players[0].name) {
+            player.distrib = 1;
+        } else {
+            player.distrib = 0;
+        }
+        addLocalStorage();
     }
 }
 
@@ -162,7 +212,7 @@ function cancel() {
         }
         if (players[0].pointsHistoryArray.length === 0) {
             document.getElementById("cancel").disabled = true;
-            localStorage.clear();
+            clearLocalStorage();
         }
     }
 }
@@ -179,14 +229,22 @@ function reset() {
             document.getElementById(player.name + "_hist").value = "";
         }
         document.getElementById("cancel").disabled = true;
-        localStorage.clear();
+
         for (let i in players) {
+            i = parseInt(i);
             if (i === 0) {
                 document.getElementById(players[i].name + "_box").checked = true;
             } else {
                 document.getElementById(players[i].name + "_box").checked = false;
             }
         }
+
+        if(confirm("Voulez vous reinitialiser les noms ?")) {
+            localStorage.clear()
+        } else {
+            clearLocalStorage()
+        }
+
         location.reload();
     }
 }
@@ -202,7 +260,7 @@ function write() {
         let newP1 = document.createElement("p");
         newP1.classList.add("playerName");
         newP1.id = player.name + "_points";
-        newP1.innerText = player.name;
+        newP1.innerText = player.newname;
 
         let newInput = document.createElement("input");
         newInput.type = "number";
@@ -249,6 +307,98 @@ function write() {
     newDivParam.classList.add("param");
     newDivParam.id = "param";
     newDivParam.style.display = "none";
+
+    let newH2Name = document.createElement("h2");
+    newH2Name.textContent = "Modifier le nom des joueurs";
+
+    newDivParam.append(newH2Name);
+
+    let newList = document.createElement("select");
+    newList.classList.add("selectname");
+    newList.id = "selectname";
+
+    for (let player of players) {
+        let newOption = document.createElement("option");
+        newOption.classList.add("option");
+        newOption.id = player.name + "_option";
+        newOption.value = player.newname;
+        newOption.textContent = player.newname;
+
+        newList.append(newOption);
+    }
+
+    newDivParam.append(newList);
+
+    function change_name() {
+        var selectname = document.getElementById("selectname");
+                var choicename = selectname.selectedIndex;
+                var name = selectname.options[choicename].value;
+                let newname = document.getElementById("modifname").value;
+                document.getElementById("modifname").value = "";
+                for (let player of players) {
+                    if (name === player.newname) {
+                        player.newname = newname;
+                        addLocalStorage();
+                        location.reload();
+            }
+        }
+    }
+
+    let newInput = document.createElement("input");
+    newInput.type = "text";
+    newInput.id = "modifname";
+    newInput.classList.add("inputname");
+
+    newDivParam.append(newInput);
+
+    let newButton = document.createElement("input");
+    newButton.type = "button";
+    newButton.classList.add("button");
+    newButton.value = "Enregistrer";
+    newButton.onclick = change_name;
+
+    newDivParam.append(newButton);
+
+    let newH2Number = document.createElement("h2");
+    newH2Number.textContent = "Modifier le nombre de joueurs";
+
+    newDivParam.append(newH2Number);
+
+    let newSelectNumber = document.createElement("select");
+    newSelectNumber.classList.add("selectname");
+    newSelectNumber.id = "selectnumber";
+
+    for (let i = 1; i <= 10; i++) {
+        let newOption = document.createElement("option");
+        newOption.id = i;
+        newOption.value = i;
+        newOption.textContent = i + " joueurs";
+        if (i === player_selected) {
+            newOption.selected = true
+        } else {
+            newOption.selected = false
+        }
+
+        newSelectNumber.append(newOption);
+    }
+
+    newDivParam.append(newSelectNumber);
+
+    let newButtonPlayer = document.createElement("input");
+    newButtonPlayer.type = "button";
+    newButtonPlayer.value = "Confirmer";
+    newButtonPlayer.classList.add("button");
+    newButtonPlayer.onclick = playernumber;
+
+    newDivParam.append(newButtonPlayer);
+
+    function playernumber() {
+        var selectnumber = document.getElementById("selectnumber");
+        var choicenumber = selectnumber.selectedIndex;
+        player_selected = selectnumber.options[choicenumber].value;
+        addLocalStorage();
+        location.reload();
+    }
 
     let newP = document.createElement("h2");
     newP.textContent = "Afficher qui distribue";
