@@ -26,11 +26,14 @@ if (localStorage.getItem("name0") === null) {
 } else {
     getLocalStorage();
     write();
-    document.getElementById("cancel").disabled = false;
+    if(players[0].pointsHistoryArray.length === 0){
+        document.getElementById("cancel").disabled = true;
+    } else {
+        document.getElementById("cancel").disabled = false;
+    }
 }
 
 function addLocalStorage() {
-    localStorage.clear();
     for (let player of players) {
         if (document.getElementById(player.name + "_box").checked === true) {
             player.distrib = 1
@@ -109,18 +112,35 @@ function getLocalStorage() {
     }
 }
 
-function clearLocalStorage() {
-    for (let player of players) {
-        player.totalPoints = 0;
-        player.points = 0;
-        player.pointsHistoryText = "";
-        player.pointsHistoryArray = [];
-        if (player.name === players[0].name) {
-            player.distrib = 1;
-        } else {
-            player.distrib = 0;
+function clearLocalStorage(x) {
+    if (x === 0) {
+        for (let player of players) {
+            player.totalPoints = 0;
+            player.points = 0;
+            player.pointsHistoryText = "";
+            player.pointsHistoryArray = [];
+            if (player.name === players[0].name) {
+                player.distrib = 1;
+            } else {
+                player.distrib = 0;
+            }
+            addLocalStorage();
         }
-        addLocalStorage();
+    }
+    else if (x === 1) {
+        for (let player of players) {
+            player.newname = player.name;
+            player.totalPoints = 0;
+            player.points = 0;
+            player.pointsHistoryText = "";
+            player.pointsHistoryArray = [];
+            if (player.name === players[0].name) {
+                player.distrib = 1;
+            } else {
+                player.distrib = 0;
+            }
+            addLocalStorage();
+        }
     }
 }
 
@@ -212,7 +232,7 @@ function cancel() {
         }
         if (players[0].pointsHistoryArray.length === 0) {
             document.getElementById("cancel").disabled = true;
-            clearLocalStorage();
+            clearLocalStorage(0);
         }
     }
 }
@@ -240,9 +260,9 @@ function reset() {
         }
 
         if(confirm("Voulez vous reinitialiser les noms ?")) {
-            localStorage.clear()
+            clearLocalStorage(1)
         } else {
-            clearLocalStorage()
+            clearLocalStorage(0)
         }
 
         location.reload();

@@ -3,51 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>Accueil</title>
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="accueil/style.css">
+    <link rel="stylesheet" href="styleblue.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="accueil/style.css">
     <script type="text/javascript" src="script.js"></script>
 </head>
-<body onload="load()">
+<body>
 
-<header>
-    <a class="nav-lien-start-active" href="index.html">Accueil</a>
-    <a class="nav-lien" href="liens/index.html">Liens</a>
-    <a class="nav-lien" href="pbm_box/pbm_box.html">Box</a>
-    <a class="nav-lien-end" href="points/scratch.html">Compteur de points</a>
-</header>
+<main>
+    <section class="glass" id="glass">
+        <header>
+            <a class="nav-lien-active" href="index.html">Accueil</a>
+            <a class="nav-lien" href="liens/index.html">Liens</a>
+            <a class="nav-lien" href="pbm_box/pbm_box.html">Box</a>
+            <a class="nav-lien" href="points/scratch.html">Compteur de points</a>
+        </header>
+        <div class="title">
+            <p class="accueil">Bienvenue sur mon site !</p>
 
-<p class="accueil">Bienvenue sur mon site !</p>
-<p class="color-text">Vous pouvez modifier la couleur principale ci-dessous</p>
-<select id="select" onchange="color()">
-    <option value="blue" style="background-color: blue; color: white;">Par défault (Bleu)</option>
-    <option value="aqua" style="background-color: aqua">Bleu ciel</option>
-    <option value="red" style="background-color: red; color: white;">Rouge</option>
-    <option value="green" style="background-color: green; color: white;">Vert</option>
-    <option value="yellow" style="background-color: yellow">Jaune</option>
-    <option value="purple" style="background-color: purple; color: white;">Violet</option>
-    <option value="pink" style="background-color: pink">Rose</option>
-    <option value="orange" style="background-color: orange">Orange</option>
-</select>
-<!--<input type="text" id="color">
-<input type="button" class="color-picker" onclick="color()" value="Changer la couleur">-->
+                <section class="glass text-glass" id="glass1">
+                    <div class="second" id="secondLien">
+                        <h4>Dans l'onglet <a class="a" href="liens/index.html">Lien</a>, vous pouvez ajouter, enlever, modifier des raccourcis personnalisés qui vous emmeneront vers vos sites préférés</h4>
+                        <p>J'ai fait cet onglet durant le premier confinement puisque cela m'a permis de réunir tous les liens vers les visios des professeurs.</p>
+                    </div>
+                </section>
+                <section class="glass text-glass" id="glass2">
+                    <div class="second" id="secondBox">
+                        <h4>Dans l'onglet <a class="a" href="pbm_box/pbm_box.html">Box</a>, vous pouvez voir les problèmes du jour de free à propos du wifi</h4>
+                        <p>Celui-là est apparut à la suite de plusieurs problèmes de connexion sur une box free. Il permet de savoir si le probleme vient de chez free ou de votre box.</p>
+                    </div>
+                </section>
+                <section class="glass text-glass" id="glass3">
+                    <div class="second" id="secondPoints">
+                        <h4>Dans l'onglet <a class="a" href="points/scratch.html">Compteur de points</a>, vous pouvez savoir qui a combien de points en temps réel lorque vous jouez à un jeu de carte ou à un jeu qui necessite de compter les points</h4>
+                        <p>Celui-ci est le premier que j'ai fait et c'est celui qui m'a fait découvrir la programation. Il nous a permis de compter les points sur un bon support au lieu de sur une feuille excel.</p>
+                    </div>
+                </section>
+            <!--<p class="color-text">Vous pouvez modifier la couleur principale ci-dessous</p>
+            <select id="select" onchange="color()">
+                <option value="blue" style="background-color: blue; color: white;">Par défault (Bleu)</option>
+                <option value="aqua" style="background-color: aqua">Bleu ciel</option>
+                <option value="red" style="background-color: red; color: white;">Rouge</option>
+                <option value="green" style="background-color: green; color: white;">Vert</option>
+                <option value="yellow" style="background-color: yellow">Jaune</option>
+                <option value="purple" style="background-color: purple; color: white;">Violet</option>
+                <option value="pink" style="background-color: pink">Rose</option>
+                <option value="orange" style="background-color: orange">Orange</option>
+            </select>-->
+        </div>
 
-<div class="main">
-<div class="second" id="secondLien">
-    <h2>Dans l'onglet <a class="a" href="liens/index.html">Lien</a>, vous pouvez ajouter, enlever, modifier des raccourcis personnalisés qui vous emmeneront vers vos sites préférés</h2>
-<p>J'ai fait cet onglet durant le premier confinement puisque cela m'a permis de réunir tous les liens vers les visios des professeurs.</p>
-</div>
-
-<div class="second" id="secondBox">
-    <h2>Dans l'onglet <a class="a" href="pbm_box/pbm_box.html">Box</a>, vous pouvez voir les problèmes du jour de free à propos du wifi</h2>
-    <p>Celui-là est apparut à la suite de plusieurs problèmes de connexion sur une box free. Il permet de savoir si le probleme vient de chez free ou de votre box.</p>
-</div>
-
-<div class="second" id="secondPoints">
-    <h2>Dans l'onglet <a class="a" href="points/scratch.html">Compteur de points</a>, vous pouvez savoir qui a combien de points en temps réel lorque vous jouez à un jeu de carte ou à un jeu qui necessite de compter les points</h2>
-    <p>Celui-ci est le premier que j'ai fait et c'est celui qui m'a fait découvrir la programation. Il nous a permis de compter les points sur un bon support au lieu de sur une feuille excel.</p>
-</div>
-</div>
+    </section>
+</main>
+<div class="circle circle1" data-speed="6"></div>
+<div class="circle circle2" data-speed="-2"></div>
 
 </body>
 

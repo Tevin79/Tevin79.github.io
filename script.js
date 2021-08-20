@@ -1,4 +1,4 @@
-function load() {
+/*function load() {
     if (localStorage.getItem("color")!= null){
         let color = localStorage.getItem("color");
         var nav = document.getElementsByClassName("nav-lien-start-active");
@@ -66,4 +66,17 @@ function load() {
             nav[i].style.borderColor = "blue";
         }
     }
+}
+*/
+
+document.addEventListener("mousemove", parallax);
+function parallax (e) {
+    this.querySelectorAll(".circle").forEach(Element => {
+        const speed = Element.getAttribute("data-speed")
+
+        const x = (window.innerWidth - e.pageX*speed)/100
+        const y = (window.innerHeight - e.pageY*speed)/100
+
+        Element.style.transform = `translateX(${x}px) translateY(${y}px)`
+    });
 }

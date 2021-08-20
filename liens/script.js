@@ -44,7 +44,7 @@ let href;
 
     let len = href.length - 1;
 
-	const body = document.querySelector("body");
+	const body = document.querySelector("#body");
 
 	//document.write("<div id=\"lien\">");
 	let newDivLien = document.createElement("div");
@@ -291,7 +291,8 @@ body.append(newDivLienModif);
         document.getElementById("url").value = "";
         names.push(name);
 	href.push(url);
-	localStorage.clear();
+		localStorage.removeItem("name");
+		localStorage.removeItem("url");
 	let href_mem = JSON.stringify(href);
         localStorage.setItem("url",href_mem);
 	let names_mem = JSON.stringify(names);
@@ -314,7 +315,8 @@ body.append(newDivLienModif);
 			        t = t + 1
 			       }
 			       }
-	    localStorage.clear();
+			localStorage.removeItem("name");
+			localStorage.removeItem("url");
 	    let href_mem = JSON.stringify(href);
             localStorage.setItem("url",href_mem);
     	    let names_mem = JSON.stringify(names);
@@ -382,7 +384,8 @@ body.append(newDivLienModif);
 			names[i] = document.getElementById("names" + i).value;
 			href[i] = document.getElementById("href" + i).value;
 		}
-		localStorage.clear();
+		localStorage.removeItem("name");
+		localStorage.removeItem("url");
 		let href_mem = JSON.stringify(href);
 		localStorage.setItem("url",href_mem);
 		let names_mem = JSON.stringify(names);
@@ -394,20 +397,16 @@ body.append(newDivLienModif);
 
     function annul() {
 		    if (confirm("Etes vous sûr de vouloir annuler toutes les modifications ?")) {
-		localStorage.clear();
+				localStorage.removeItem("name");
+				localStorage.removeItem("url");
 		location.reload()
 			    }
     }
     
     async function plus() {
     if (document.getElementById("param").style.display === "flex") {
-    document.getElementById("param").style.animationDuration = "1s";
-    document.getElementById("param").style.animationName = "disparition";
-    await sleep(990);
     document.getElementById("param").style.display = "none"
     } else {
     document.getElementById("param").style.display = "flex";
-    document.getElementById("param").style.animationDuration = "1s";
-    document.getElementById("param").style.animationName = "apparition";
     }
     }
