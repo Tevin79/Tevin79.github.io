@@ -120,11 +120,6 @@ input {
     color: black;
 }
 
-header{
-    padding-top: 20px;
-    text-align: center;
-}
-
 .playerName,
 .playerTotalPoints
 {
