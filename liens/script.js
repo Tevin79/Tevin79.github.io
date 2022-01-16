@@ -14,7 +14,13 @@ let href;
             "https://mail.google.com/mail/",
             "https://meet.google.com/",
             "https://drive.google.com/",
-            "https://ent.ac-poitiers.fr",
+			"https://ent.univ-poitiers.fr",
+			"https://updago.univ-poitiers.fr",
+			"https://upplanning.appli.univ-poitiers.fr/direct/myPlanningUP.html",
+			"https://univ-poitiers.webex.com/meet/hakim.ferrier.belhaouari",
+			"https://univ-poitiers.webex.com/meet/nicolas.james",
+			"https://univ-poitiers.webex.com/meet/larbi.belkhchicha",
+			"https://calendar.google.com/calendar/u/0/embed?height=600&wkst=2&bgcolor=%23ffffff&ctz=Europe/Paris&mode=WEEK&showTitle=1&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=1&showTz=1&src=dmNnYWpoMnBmMTJ2anI5dmVjZWh0NnQxZDBwMzNndTVAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23D81B60"
         ];
 
 // Met les url dans le localStorage
@@ -24,7 +30,18 @@ let href;
 	*/
 // Complete les noms liés aux url par defaut
 	
-        names = ["Google", "Gmail", "Google meet", "Drive", "LOL"]
+        names = ["Google",
+		"Gmail",
+		"Google meet", 
+		"Drive",
+		"ENT",
+		"Updago",
+		"UPplanning",
+		"CM Complement de programmation",
+		"CM Calcul maticiel",
+		"CM Analyse elementaire",
+		"Planning Tev"
+	]
 	
 // Met les noms dans le localStorage
 	/*
