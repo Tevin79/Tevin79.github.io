@@ -91,9 +91,15 @@ main #glass {
     left: 10%;
 }
 
-@media screen and (max-width:  1100px) {
+@media screen and (max-width:  1080px) {
     main #glass {
         width: 95%;
         height: 95vh;
+    }
+    .circle1, .circle2 {
+        display: none;
+    }
+    main #glass {
+        height: auto;
     }
 }
