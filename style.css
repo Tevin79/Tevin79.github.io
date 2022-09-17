@@ -32,3 +32,9 @@
 .nav-lien:hover {
     box-shadow: 6px 6px 20px rgba(122,122,122,0.2);
 }
+
+@media (max-width: 1080px) {
+    .nav-lien, .nav-lien-active {
+        width: auto;
+    }
+}
