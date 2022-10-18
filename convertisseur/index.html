@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Convertisseur</title>
+</head>
+<body>
+    <select name="codage">
+        <option id="subSelect">Substitution</option>
+    </select>
+
+    <div id="subDiv">
+        <p>Cle :</p>
+        <input type="text" id="cleSub">
+        <p>Mot à chiffrer ou dechiffrer :</p>
+        <input type="text" id="motSub">
+        <p>Resultat :</p>
+        <input type="text" id="finalSub" disabled="disabled">
+        <input type="button" onclick="chiffrerSub()" value="Chiffrer">
+        <input type="button" onclick="dechiffrerSub()" value="Dechiffrer">
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
