@@ -37,6 +37,6 @@ iframe {
     transition-duration: 0.5s;
 }
 
-.lien-edt:hover {
+.lien-edt:hover, .active{
     box-shadow: 6px 6px 20px rgba(122,122,122,0.2);
 }
