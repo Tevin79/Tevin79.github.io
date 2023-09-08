@@ -7,7 +7,6 @@ body{
 }
 
 p, h2{
-    margin: 0;
     padding: 0;
     color: rgba(100,100,100,0.9);
 }
@@ -50,7 +49,6 @@ main #glass {
     justify-content: space-evenly;
     padding: 0%;
     width: 98%;
-    height: 95vh;
     min-height: 80vh;
     z-index: 2;
     backdrop-filter: blur(2rem);
