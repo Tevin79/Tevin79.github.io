@@ -27,6 +27,7 @@
     padding: 20px;
     transition-property: box-shadow;
     transition-duration: 0.5s;
+    overflow-wrap: break-word;
 }
 
 .nav-lien:hover {
@@ -35,6 +36,6 @@
 
 @media (max-width: 1080px) {
     .nav-lien, .nav-lien-active {
-        width: auto;
+        width: -webkit-fill-available;
     }
 }
