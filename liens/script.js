@@ -153,6 +153,9 @@ newDivLien.append(newInputButton);
 newDivLienModif.append(newDivLien);
 body.append(newDivLienModif);
 
+if (screen.height > screen.width){
+	document.getElementById("style").setAttribute("href", "../styleblue_small.css");
+}
 
     //document.write("</div>");
 

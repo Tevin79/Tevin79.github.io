@@ -551,3 +551,7 @@ function write() {
     reNewDiv.append(newTextAreaP3);
     body.append(reNewDiv);*/
 }
+
+if (screen.height > screen.width){
+    document.getElementById("style").setAttribute("href", "../styleblue_small.css");
+}

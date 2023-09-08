@@ -80,3 +80,7 @@ function parallax (e) {
         Element.style.transform = `translateX(${x}px) translateY(${y}px)`
     });
 }
+
+if (screen.height > screen.width){
+    document.getElementById("style").setAttribute("href", "styleblue_small.css");
+}

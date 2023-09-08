@@ -40,3 +40,7 @@ function l3_maths() {
 function load() {
     l2_info();
 }
+
+if (screen.height > screen.width){
+    document.getElementById("style").setAttribute("href", "../styleblue_small.css");
+}

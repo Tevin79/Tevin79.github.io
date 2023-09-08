@@ -1,9 +1,9 @@
 body{
     text-align: center;
     background: linear-gradient(
-        to right top, 
-        #65dfc9, 
-        #6cdbeb);
+            to right top,
+            #65dfc9,
+            #6cdbeb);
 }
 
 p, h2{
@@ -23,12 +23,12 @@ header{
     max-width: 15%;
     min-width: 100px;
     background: white;
-    background: 
-    linear-gradient(
-        to right bottom, 
-        rgba(255, 255, 255, 0.7), 
-        rgba(255,255,255,0.3)
-    );
+    background:
+            linear-gradient(
+                    to right bottom,
+                    rgba(255, 255, 255, 0.7),
+                    rgba(255,255,255,0.3)
+            );
     border-radius: 2rem;
     box-shadow: 6px 6px 20px rgba(122,122,122,0.2);
 }
@@ -49,7 +49,8 @@ main #glass {
     display: flex;
     justify-content: space-evenly;
     padding: 0%;
-    width: 60%;
+    width: 98%;
+    height: 95vh;
     min-height: 80vh;
     z-index: 2;
     backdrop-filter: blur(2rem);
@@ -59,34 +60,28 @@ main #glass {
     padding: 2%;
     background: white;
     background: linear-gradient(
-        to right bottom, 
-        rgba(255, 255, 255, 0.7), 
-        rgba(255,255,255,0.3)
-        );
+            to right bottom,
+            rgba(255, 255, 255, 0.7),
+            rgba(255,255,255,0.3)
+    );
     border-radius: 2rem;
     box-shadow: 6px 6px 20px rgba(122,122,122,0.2);
 }
 
-.circle1, 
+.circle1,
 .circle2 {
     background: white;
     background: linear-gradient(
-        to right bottom, 
-        rgba(255, 255, 255, 0.8), 
-        rgba(255,255,255,0.3)
-        );
+            to right bottom,
+            rgba(255, 255, 255, 0.8),
+            rgba(255,255,255,0.3)
+    );
     height: 15rem;
     width: 15rem;
     position: absolute;
     border-radius: 50%;
 }
 
-.circle1{
-    top: 5%;
-    right: 15%;
-}
-
-.circle2{
-    bottom: 5%;
-    left: 10%;
+.circle1, .circle2 {
+    display: none;
 }
