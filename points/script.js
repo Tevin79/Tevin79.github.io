@@ -290,8 +290,8 @@ function write() {
         let newBox = document.createElement("input");
         newBox.type = "radio";
         newBox.classList.add("box");
+        newBox.classList.add("disabled");
         newBox.id = player.name + "_box";
-        newBox.disabled = true;
         newBox.name = "distrib";
         if (player.distrib === 1) {
             newBox.checked = true;
@@ -468,11 +468,11 @@ function write() {
     function boxModif() {
         if (document.getElementById("boxDistribModif").checked === false) {
             for (let player of players) {
-                document.getElementById(player.name + "_box").disabled = true;
+                document.getElementById(player.name + "_box").classList.add("disabled");
             }
         } else {
             for (let player of players) {
-                document.getElementById(player.name + "_box").disabled = false;
+                document.getElementById(player.name + "_box").classList.remove("disabled");
             }
         }
     }

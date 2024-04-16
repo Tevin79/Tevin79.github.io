@@ -97,6 +97,11 @@
     height: 20px;
     width: 20px;
     align-content: center;
+    pointer-events: all;
+}
+
+.disabled{
+    pointer-events: none;
 }
 
 input {
