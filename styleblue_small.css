@@ -46,7 +46,6 @@ main {
 
 main #glass {
     display: flex;
-    justify-content: space-evenly;
     padding: 0%;
     width: 98%;
     min-height: 80vh;

@@ -39,17 +39,17 @@ header a {
 }
 
 main {
-    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 5em;
+    margin-bottom: 5em;
 }
 
 main #glass {
     display: flex;
-    justify-content: space-evenly;
     padding: 0%;
-    width: 60%;
+    width: 80%;
     min-height: 80vh;
     z-index: 2;
     backdrop-filter: blur(2rem);
