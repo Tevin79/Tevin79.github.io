@@ -67,8 +67,6 @@ function getLocalStorage() {
 
     player_selected = parseInt(player_selected);
 
-    console.log(player_selected);
-
     while (i < player_selected) {
 
         let j = i+1;
