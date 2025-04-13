@@ -12,4 +12,7 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+  hub: {
+    database: true
+  }
 })
