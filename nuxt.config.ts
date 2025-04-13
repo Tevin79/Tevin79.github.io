@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   modules: ['@nuxt/ui', '@nuxthub/core'],
-  ssr: false,
+  //ssr: false,
   css: ['~/assets/css/main.css'],
   vite: {
     plugins: [
@@ -14,5 +14,10 @@ export default defineNuxtConfig({
   },
   hub: {
     database: true
+  },
+  nitro: {
+    experimental: {
+      tasks: true
+    }
   }
 })
